@@ -49,7 +49,7 @@ function CambiarFondo(){
      let correo = document.querySelector("#txtCorreo").value;
      let celular = document.querySelector("#txtCelular").value;
 
-     let url=`127.0.0.1:3000/usuarios`;
+     let url=`http://127.0.0.1:3000/usuarios`;
      let datos={
          nombres : nombres,
          apellidos : apellidos,
@@ -58,7 +58,7 @@ function CambiarFondo(){
      };
      fetch(url, {
          method: 'POST',
-         body : datos,
+         body : JSON.stringify(datos),
          headers:{
              'Content-Type':'application/json'
          }
