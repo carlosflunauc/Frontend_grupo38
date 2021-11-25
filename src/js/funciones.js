@@ -42,5 +42,28 @@ function CambiarFondo(){
   })()
 
   function RegistrarUsuario(){
-      alert("Usuario guardado")
+     // alert("Usuario guardado")
+
+     let nombres = document.querySelector("#txtNombres").value;
+     let apellidos = document.querySelector("#txtApellidos").value;
+     let correo = document.querySelector("#txtCorreo").value;
+     let celular = document.querySelector("#txtCelular").value;
+
+     let url=`127.0.0.1:3000/usuarios`;
+     let datos={
+         nombres : nombres,
+         apellidos : apellidos,
+         correo : correo,
+         celular : celular
+     };
+     fetch(url, {
+         method: 'POST',
+         body : datos,
+         headers:{
+             'Content-Type':'application/json'
+         }
+     }).then(res => res.json())
+     .then(mensaje => {
+         console.log(mensaje)
+     })
   }
